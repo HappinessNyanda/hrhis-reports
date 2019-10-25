@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="container col-12">
+  <div class="row">
+    <div class="col-2 sidebar">
+      <div class="pt-3">
+        <mat-form-field class="form-group custom-width">
+          <mat-label>Select Report Type</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let report of reportTypes"
+              [value]="report.link"
+            >
+              {{ report.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-10">
+      Report Area
+    </div>
+  </div>
+</div>
