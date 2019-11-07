@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-2 sidebar">
       <div class="pt-3">
-
         <mat-form-field class="form-group custom-width">
           <mat-label>Select Report Type</mat-label>
           <mat-select onselect="hideReport()">
@@ -13,32 +12,39 @@
               {{ report.name }}
             </mat-option>
           </mat-select>
-        </mat-form-field>  
+        </mat-form-field>
+        <mat-form-field class="form-group custom-width" appearance="legacy">
+          <mat-label>Search form by name </mat-label>
+          <input matInput placeholder="Report Name" />
+          <i class="fas fa-search"></i>
+        </mat-form-field>
+
         <mat-action-list>
-              <button mat-list-item (click)="openReport()"> Records Report </button>
-              <button mat-list-item (click)="openReport()"> Friendly Report </button>
-              <button mat-list-item (click)="openReport()"> Training Report </button>
-        </mat-action-list>    
+          <button mat-list-item (click)="openReport()">Records Report</button>
+          <button mat-list-item (click)="openReport()">Friendly Report</button>
+          <button mat-list-item (click)="openReport()">Training Report</button>
+        </mat-action-list>
       </div>
     </div>
     <div class="col-10">
-
-        <div class="row">
-            <div width="33%" class="column">
-                <mat-form-field class="form-group custom-width">
-                    <mat-label>Organisation units</mat-label>
-                    <mat-select>
-                      <mat-option
-                        *ngFor="let report of reportTypes"
-                        [value]="report.link"
-                      >
-                        {{ report.name }}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>  
-            </div>
-          
-          </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <button
+            mat-stroked-button
+            routerLink="."
+            class="selection-filter-buttons"
+          >
+            Select Organization Unit
+          </button>
+          <button
+            mat-stroked-button
+            routerLink="."
+            class="mx-3 selection-filter-buttons"
+          >
+            Select Period
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

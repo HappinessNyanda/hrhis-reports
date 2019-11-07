@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -29,6 +30,7 @@ import { HomeComponent } from './containers/home/home.component';
     MatStepperModule,
     MatSelectModule,
     MatListModule,
+    MatIconModule,
     HomeRoutingModule
   ]
 })
