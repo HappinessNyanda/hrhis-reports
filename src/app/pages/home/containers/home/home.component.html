@@ -4,9 +4,9 @@
       <div class="pt-3">
         <mat-form-field class="form-group custom-width">
           <mat-label>Select Report Type</mat-label>
-          <mat-select onselect="hideReport()">
+          <mat-select onselect="setCurrentReportType()">
             <mat-option
-              *ngFor="let report of reportTypes"
+              *ngFor="let report of reportTypes$ | async"
               [value]="report.link"
             >
               {{ report.name }}
