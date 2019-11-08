@@ -4,7 +4,7 @@ import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
 
 export interface ReportTypeState extends EntityState<ReportType>, BaseState {
   initialized: boolean;
-  currentReportType: string;
+  currentReportTypeId: string;
 }
 
 export const reportTypeAdapter: EntityAdapter<ReportType> = createEntityAdapter<
@@ -17,6 +17,6 @@ export const initialFormState: ReportTypeState = reportTypeAdapter.getInitialSta
   {
     ...initialBaseState,
     initialized: false,
-    currentReportType: ''
+    currentReportTypeId: ''
   }
 );

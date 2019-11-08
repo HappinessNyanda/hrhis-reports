@@ -27,7 +27,15 @@ export const getReportTypeInitializedStatus = createSelector(
   getReportTypeState,
   (state: ReportTypeState) => state.initialized
 );
-export const getCurrentReportTypeStatus = createSelector(
+export const getCurrentReportType = createSelector(
   getReportTypeState,
-  (state: ReportTypeState) => state.currentReportType
+  (state: ReportTypeState) => state.currentReportTypeId
+);
+
+export const getCurrentReportTypeReports = createSelector(
+  getReportTypeState,
+  getAllReportTypeContent,
+  getCurrentReportType,
+  (state, allReportTypes, currentReportTypeId) =>
+    _.get(_.find(allReportTypes, ['id', currentReportTypeId]), 'reports') || []
 );

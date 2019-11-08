@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { HrisMenuModule } from '@iapps/hris-menu';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -15,6 +17,7 @@ import { effects } from './store/effects';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     RoutingModule,

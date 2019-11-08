@@ -7,7 +7,10 @@ import {
   loadReportTypesFailure,
   setCurrentReportType
 } from '../actions/report-type.actions';
-import { getReportTypeInitializedStatus } from '../selectors/report-type.selector';
+import {
+  getReportTypeInitializedStatus,
+  getAllReportTypeContent
+} from '../selectors/report-type.selector';
 import { ReportService } from '../../core/services/report.service';
 import { ReportType } from '../../core/models/report-type.model';
 import { map, concatMap, withLatestFrom, tap } from 'rxjs/operators';
@@ -52,4 +55,16 @@ export class ReportTypesEffects {
       ),
     { dispatch: false }
   );
+
+  // setCurrentReportType$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(setCurrentReportType),
+  //     concatMap(action =>
+  //       of(action).pipe(withLatestFrom(this.store.pipe(select(getAllReportTypeContent))))
+  //     ),
+  //     map((reportTypes) => {
+  //       return go({ path: [`/updates/${id}`] });
+  //     })
+  //   )
+  // );
 }

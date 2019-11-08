@@ -34,9 +34,9 @@ export const reducer = createReducer(
       ...loadedBaseState
     })
   ),
-  on(setCurrentReportType, (state, { currentReportType }) => ({
+  on(setCurrentReportType, (state, { currentReportTypeId }) => ({
     ...state,
-    currentReportType: currentReportType
+    currentReportTypeId: currentReportTypeId
   }))
 );
 
