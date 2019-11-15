@@ -11,6 +11,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgPipesModule } from 'ngx-pipes';
 
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -31,6 +35,9 @@ import { HomeComponent } from './containers/home/home.component';
     MatSelectModule,
     MatListModule,
     MatIconModule,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    NgPipesModule,
     HomeRoutingModule
   ]
 })

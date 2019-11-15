@@ -1,6 +1,6 @@
 <div class="container col-12">
   <div class="row">
-    <div class="col-2 sidebar">
+    <div class="col-3 sidebar">
       <div class="pt-3">
         <mat-form-field class="form-group custom-width">
           <mat-label>Select Report Type</mat-label>
@@ -16,18 +16,32 @@
         </mat-form-field>
         <mat-form-field class="form-group custom-width" appearance="legacy">
           <mat-label>Search form by name </mat-label>
-          <input matInput placeholder="Report Name" />
+          <input
+            matInput
+            placeholder="Report Name"
+            (keyup)="onSearchByReportName($event)"
+          />
+
           <mat-icon style="float:right">search</mat-icon>
         </mat-form-field>
 
         <mat-action-list>
-          <mat-list-item *ngFor="let report of currentReportTypeList$ | async">
+          <mat-list-item
+            *ngFor="
+              let report of currentReportTypeList$
+                | async
+                | filterBy: ['displayName']:searchTerm
+                | paginate: { itemsPerPage: 10, currentPage: p }
+            "
+          >
             {{ report.displayName }}
           </mat-list-item>
+
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </mat-action-list>
       </div>
     </div>
-    <div class="col-10">
+    <div class="col-9">
       <div class="row mt-3">
         <div class="col-12">
           <button

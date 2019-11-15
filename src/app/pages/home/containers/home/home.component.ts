@@ -17,19 +17,26 @@ import { ReportType } from 'src/app/core/models/report-type.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  p: number = 1;
   reportTypes$: Observable<ReportType[]>;
   currentReportTypeList$: Observable<ReportType>;
+  searchTerm: string = '';
   constructor(private store: Store<State>) {
     this.reportTypes$ = this.store.select(getAllReportTypeContent);
     this.currentReportTypeList$ = this.store.select(
       getCurrentReportTypeReports
     );
-    this.store.select(getCurrentReportTypeReports).subscribe(object => {
-      console.log(object);
-    });
   }
   setCurrentReportType(currentReportTypeId) {
     this.store.dispatch(setCurrentReportType({ currentReportTypeId }));
   }
+
+  onSearchByReportName(e) {
+    if (e) {
+      e.stopPropagation();
+    }
+    this.searchTerm = e ? e.target.value.trim() : this.searchTerm;
+  }
+
   ngOnInit() {}
 }
